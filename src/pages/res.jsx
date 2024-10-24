@@ -28,21 +28,21 @@ export default function Res() {
         <div className="text-white font-inter" id="main">
             {user && (
                 <div id="main" className="flex flex-col items-center gap-5 p-5">
-                    <Div id="person" className="text-center p-2">
+                    <Div id="person" className="text-center p-2 panel">
                         {img && <img src={img} alt="Avatar" className="w-48 h-48 rounded-full border-4 border-cyan-400" />}
                         <h1 className="text-xl font-bold">{user.displayName}</h1>
                         <h2 className="text-xl font-bold">@{user.name}</h2>
                         <h5><i class="bi bi-hash"></i>{userName}</h5>
                     </Div>
-                    <Div id="gender" className="flex justify-center items-center gap-2">
+                    <Div id="gender" className="flex justify-center items-center gap-2 panel">
                         &nbsp;<div dangerouslySetInnerHTML={{ __html: gender }} id="gender" style={{fontSize: "xx-large"}}/>&nbsp;
                     </Div>
-                    <Div id="time" className="text-center text-gray-400 p-2">
+                    <Div id="time" className="text-center text-gray-400 p-2 panel">
                         <i class="bi bi-calendar-event-fill text-2xl font-bold"></i>
                         <p>&nbsp;Created At: {new Date(user.createTime).toLocaleString()}&nbsp;</p>
                         <i class="bi bi-globe-americas text-2xl font-bold"></i><p>Locale: {user.locale}</p>
                     </Div>
-                    <div className="flex">
+                    <div className="flex panel">
                         <Div className="bg-indigo-700 p-5 rounded-lg text-white max-h-4 max-w-4" width={300 + "px"} hight={500 + "px"}>
                             {(() => {
                                 if(user.about !== ''){
@@ -59,7 +59,7 @@ export default function Res() {
                             })()}
                         </Div>
                         &nbsp;
-                        <Div id="tags" className="flex justify-around w-full p-2">
+                        <Div id="tags" className="flex justify-around w-full p-2 panel">
                             <p>
                                 <span className={user.idVerified ? "text-green-500" : "text-red-500"}>
                                     &nbsp;&nbsp;<i className="bi bi-patch-check-fill text-2xl"></i>&nbsp;
@@ -74,7 +74,7 @@ export default function Res() {
                             </p>
                         </Div>
                     </div>
-                    <Div id="social">
+                    <Div id="social panel">
                         {(() => {
                             try {
                                 if (!user || !user.socialNetworkProfiles) {
